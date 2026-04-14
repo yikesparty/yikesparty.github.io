@@ -1,0 +1,119 @@
+/* 小鹤音型打字练习 - 自定义样式 */
+
+/* 输入框焦点样式 */
+input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px hsl(var(--primary) / 0.2);
+}
+
+/* 键盘按键动画 */
+.keyboard-key {
+  transition: all 0.15s ease;
+}
+
+.keyboard-key:active {
+  transform: scale(0.95);
+}
+
+/* 汉字显示动画 */
+.char-display {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 正确/错误反馈动画 */
+.feedback-correct {
+  animation: correctPulse 0.5s ease;
+}
+
+.feedback-wrong {
+  animation: wrongShake 0.5s ease;
+}
+
+@keyframes correctPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes wrongShake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  20%, 60% {
+    transform: translateX(-5px);
+  }
+  40%, 80% {
+    transform: translateX(5px);
+  }
+}
+
+/* 进度条动画 */
+.progress-bar {
+  transition: width 0.3s ease;
+}
+
+/* 标签页切换动画 */
+.tabs-content {
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 卡片悬停效果 */
+.card-hover {
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.card-hover:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+/* 响应式调整 */
+@media (max-width: 640px) {
+  .keyboard-container {
+    transform: scale(0.85);
+    transform-origin: center;
+  }
+}
+
+/* 高对比度模式支持 */
+@media (prefers-contrast: high) {
+  .keyboard-key {
+    border-width: 2px;
+  }
+}
+
+/* 减少动画支持 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
